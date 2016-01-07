@@ -57,21 +57,6 @@ app.run(['$rootScope', '$window',
 
 app.controller("myCtrl", function($scope, $firebaseAuth, facebookService) {
 var ref = new Firebase("https://ang-fb.firebaseio.com/");
-$scope.postMessage = function(){
-FB.api(
-    "/me/feed",
-    "POST",
-    {
-        "message": "This is a test message"
-    },
-    function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-        alert("Successful");
-      }else alert("fail");
-    }
-, {scope: 'publish_actions'});
-}
 
 $scope.Post = function() {
    facebookService.Post() 
